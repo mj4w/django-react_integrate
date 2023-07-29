@@ -1,0 +1,6 @@
+djangorestframework
+django
+django-cors-headers
+Pillow
+markdown
+django-filter
