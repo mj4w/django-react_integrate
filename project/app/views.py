@@ -39,3 +39,12 @@ class RestUpdateAPIView(generics.UpdateAPIView):
 
 urlRestUpdateAPIView = RestUpdateAPIView.as_view()
 
+class RestDeleteAPIView(generics.DestroyAPIView):
+    queryset = ReactModel.objects.all()
+    serializer_class = ReactModelSerializer
+    lookup_field = "pk"
+
+    def perform_destroy(self, instance):
+        super().perform_destroy(instance)
+
+urlRestDeleteAPIView = RestDeleteAPIView.as_view()
