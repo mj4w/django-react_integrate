@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 
 function Detail() {
   const [data, setData] = useState({});
@@ -22,10 +22,10 @@ function Detail() {
 
   return (
     <div>
-      <h1>Detail View</h1>
-      <p>Title: {data.title}</p>
-      <p>Content: {data.content}</p>
-    
+        <h1>Detail View</h1>
+        <p>Title: {data.title}</p>
+        <p>Content: {data.content}</p>
+        <Link to={`/detail/${id}/update/`}>Update</Link>
     </div>
   );
 }

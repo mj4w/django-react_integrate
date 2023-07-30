@@ -5,6 +5,7 @@ import axios from 'axios';
 function Form({ addNewData }) {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
+  const [showWarning, setShowWarning] = useState(false);
 
   const handleCreate = () => {
     const formData = {
@@ -23,6 +24,13 @@ function Form({ addNewData }) {
         console.error('Error Creating Instance:', error);
       });
 
+    if (title.trim() === '' && content.trim() === ''){
+        setShowWarning(true);
+    } else {
+        setShowWarning(false);
+        
+    }
+
   };
 
   return (
@@ -34,13 +42,17 @@ function Form({ addNewData }) {
             type="text"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
+            required
           />
+          {showWarning && <p>Please enter data in the field </p>}
           <label>Type Content Here</label>
           <input
             type="text"
             value={content}
             onChange={(e) => setContent(e.target.value)}
+            required
           />
+          {showWarning && <p>Please enter data in the field </p>}
           <div className="ui submit button" onClick={handleCreate}>
             Create
           </div>
