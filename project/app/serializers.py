@@ -5,4 +5,4 @@ from .models import ReactModel
 class ReactModelSerializer(serializers.ModelSerializer):
     class Meta:
         model = ReactModel
-        fields = ['title','content']
+        fields = ['id','title','content']

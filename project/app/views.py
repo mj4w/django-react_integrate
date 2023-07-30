@@ -11,3 +11,10 @@ class RestAPIView(generics.ListCreateAPIView):
 
 urlRestAPIView = RestAPIView.as_view()
 
+
+class RestDetailAPIView(generics.RetrieveAPIView):
+    queryset = ReactModel.objects.all()
+    serializer_class = ReactModelSerializer
+
+
+urlRestDetailAPIView = RestDetailAPIView.as_view()
